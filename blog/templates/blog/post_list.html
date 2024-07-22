@@ -1,13 +1,134 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+<head>
+
+    <title>Carnitas Reu - Productos</title>
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 30%;
+            margin: 20;
+            padding: 0px;
+            border-radius: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(1320px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; 
+        }
+
+        .product img {
+            max-width: 150px; 
+            border-radius: 8px;
+            margin-right: 20px; 
+        }
+
+        .product-content {
+            flex: 1; 
+        }
+
+        .product h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .product h3::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 30%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background-color: #ffbb00;
+            z-index: -1;
+        }
+
+        .product p {
+            font-size: 1.2rem;
+            line-height: 1.6;      
+    }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <h1>Productos</h1>
         </div>
-    {% endfor %}
+    </header>
+
+    <div id="carnitas" class="grid">
+        <div class="product">
+            <img src="https://www.elfinanciero.com.mx/resizer/dbUUn9k5KsD0hYX2ZHm55u3Yxa0=/400x267/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/HG6HCGEULBGBFPKD3UBHOT6WM4.jpg" alt="Carnitas Tradicionales">
+            <div class="product-content">
+                <h3>Carnitas Tradicionales</h3>
+                <p>Deliciosas carnitas preparadas con receta tradicional.</p>
+                <p>Precio: Q10.00</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.allrecipes.com/thmb/kPCpDhyAub-NJoPEa7fqkyMhM7k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/219048-pork-carnitas-DDMFS-4x3-71cbeba756924694b7af3f402342c9d7.jpg" alt="Tacos de Carnitas">
+            <div class="product-content">
+                <h3>Tacos de Carnitas</h3>
+                <p>Tacos gourmet con nuestra carnitas y salsas artesanales.</p>
+                <p>Precio: Q8.50</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://whatmollymade.com/wp-content/uploads/2023/06/carnitas-burrito-12.jpg" alt="Burritos de Carnitas">
+            <div class="product-content">
+                <h3>Burritos de Carnitas</h3>
+                <p>Burritos grandes y sabrosos rellenos de carnitas.</p>
+                <p>Precio: Q9.00</p>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div id="bebidas" class="grid">
+        <div class="product">
+            <img src="https://www.196flavors.com/wp-content/uploads/2018/09/horchata-1-FP-500x500.jpg" alt="Horchata">
+            <div class="product-content">
+                <h3>Horchata</h3>
+                <p>Bebida refrescante y tradicional.</p>
+                <p>Precio: Q3.50</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.semana.com/resizer/v2/LPPZYK6XQZBC7B5US5UPZ7U6KM.jpg?auth=25b32043b562b4103360f5e7040d13f0b15d0efa4d4cb0e5eef7dac8801837cb&smart=true&quality=75&width=1280" alt="Agua de Jamaica">
+            <div class="product-content">
+                <h3>Agua de Jamaica</h3>
+                <p>Bebida natural de flor de Jamaica.</p>
+                <p>Precio: Q2.50</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://laroussecocina.mx/wp-content/uploads/2020/08/shutterstock-1152533918.jpg" alt="Refresco de Tamarindo">
+            <div class="product-content">
+                <h3>Refresco de Tamarindo</h3>
+                <p>Refresco natural de tamarindo.</p>
+                <p>Precio: Q2.00</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 {% endblock %}
